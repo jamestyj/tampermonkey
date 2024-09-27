@@ -1,0 +1,17 @@
+// ==UserScript==
+// @name         HealthHub
+// @namespace    http://tampermonkey.net/
+// @version      2024-09-27
+// @description  try to take over the world!
+// @author       You
+// @match        https://eservices.healthhub.sg/Appointments/Dashboard/Index/*
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=healthhub.sg
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+    alert("hello");
+    console.log("test");
+    // Your code here...
+})();
