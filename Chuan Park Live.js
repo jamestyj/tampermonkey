@@ -34,13 +34,6 @@
         return null;
     }
 
-    // all other rows:
-    // col  2 = stack 01
-    // col 10 = stack 09
-
-    // row 1:
-    // col  1 = stack 01
-    // col  9 = stack 09
     let col2Stack = {};
     function findStack(row, col, colNode) {
         const TOP_TABLE_MAX_ROW = 112;
@@ -65,6 +58,12 @@
         else if ((row-TOP_TABLE_FIRST_FLOOR_ROW) % ROWS_PER_FLOOR == 0) {
             // row == 62, 67, ..., 97
             return col2Stack[col];
+        }
+        else if (row < 98 && col >= 11) {
+            return col2Stack[col+2];
+        }
+        else if (row >= 98 && col >= 10) {
+            return col2Stack[col+3];
         }
         else if (row >= 98 && col >= 2) {
             return col2Stack[col+2];
@@ -107,6 +106,10 @@
                             let s = String(stack).padStart(2,'0');
                             colNode.textContent = `${s}; r=${row} c=${col}: ` + colNode.textContent;
                         }
+//                        else if (floor != null) {
+//                            let f = String(floor).padStart(2,'0');
+//                            colNode.textContent = `#${f}-; r=${row} c=${col}: ` + colNode.textContent;
+//                        }
                     }
 
                     if (stack != null && stack != 5 && stack !=8 && stack != 11 && stack != 14) {
